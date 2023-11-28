@@ -1,0 +1,20 @@
+.productSize{
+    padding: 30px 0 30px 0;
+ 
+  text-align: center;
+    
+}
+.productSize-list{
+    display: flex;
+    text-align: start;
+    flex-direction: column;
+    gap:25px;
+    max-width: 900px;
+    margin: 30px auto 20px auto;
+    background-color: #f0f0f0;
+    padding: 15px;
+}
+.productSize-bolt{
+   font-weight: bold;
+   font-size: 25px;
+}

@@ -1,0 +1,21 @@
+.footer{
+    background-color: black;
+    padding: 40px;
+    color: white;
+    
+    text-align: center;
+}
+.footer-list{
+    margin-bottom: 20px;
+}
+.footer-text{
+    color: white;
+}
+@media only screen and (min-width: 900px) {
+    .footer-list{
+       display: flex;
+       gap: 40px;
+       justify-content: center;
+    }
+
+}
