@@ -3,7 +3,7 @@ import './Header.css';
 import { AiOutlineMenu, AiOutlineCloseCircle } from 'react-icons/ai';
 import RedeemIcon from '@mui/icons-material/Redeem';
 
-export const Header = () => {
+export const Header = ({modalOpen}) => {
   const [burgerMenuVisible, setBurgerMenuVisible] = useState(false);
 
   const toggleBurgerMenu = () => {
@@ -48,7 +48,7 @@ export const Header = () => {
         </li>
       </ul>
 
-      <button><RedeemIcon fontSize="large" sx={{ color: '#ffffff' }}/></button>
+      <button onClick={modalOpen} ><RedeemIcon fontSize="large" sx={{ color: '#ffffff' }}/></button>
       <div className="burger-menu-icon" onClick={toggleBurgerMenu}>
         {burgerMenuVisible ? (
           <AiOutlineCloseCircle size={30} />

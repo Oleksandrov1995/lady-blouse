@@ -1,6 +1,6 @@
 import { AboutProduct } from "./AboutProduct/AboutProduct";
 import "./App.css";
-
+import { useState } from "react";
 
 import { ChooseColor } from "./ChooseColor/ChooseColor";
 import { Contacts } from "./Contacts/Contacts";
@@ -14,11 +14,17 @@ import { Proposal } from "./Proposal/Proposal";
 import { Questions } from "./Questions/Questions";
 import { Reviews } from "./Reviews/Reviews";
 import { ShoppingList } from "./ShoppingList/ShoppingList";
+
 export const App = () => {
+
+  const[modalOpen, setModalOpen] = useState(false);
+   const handleModalOpen =()=>{setModalOpen(true)};
+   const handleModalClose=()=>{setModalOpen(false)}
+ 
   return (
    <><div className="container">
-    <ShoppingList/>
-   <Header />
+    <ShoppingList modalOpen={modalOpen} modalClose={handleModalClose} />
+   <Header modalOpen={handleModalOpen} />
    <Main/>
    <Proposal/>
    <AboutProduct/>
