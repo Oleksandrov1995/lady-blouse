@@ -25,7 +25,7 @@ useEffect (()=> {
   if(products){
     setProducts(products)
   }
-},[])
+},[localStorage.getItem('products')])
   return (
     <div>
       <Modal
