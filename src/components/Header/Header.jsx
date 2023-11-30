@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { AiOutlineMenu, AiOutlineCloseCircle } from 'react-icons/ai';
+import RedeemIcon from '@mui/icons-material/Redeem';
 
 export const Header = () => {
   const [burgerMenuVisible, setBurgerMenuVisible] = useState(false);
@@ -46,6 +47,8 @@ export const Header = () => {
           </a>
         </li>
       </ul>
+
+      <button><RedeemIcon fontSize="large" sx={{ color: '#ffffff' }}/></button>
       <div className="burger-menu-icon" onClick={toggleBurgerMenu}>
         {burgerMenuVisible ? (
           <AiOutlineCloseCircle size={30} />

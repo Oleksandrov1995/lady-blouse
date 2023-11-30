@@ -13,9 +13,11 @@ import { ProductSize } from "./ProductSize/ProductSize";
 import { Proposal } from "./Proposal/Proposal";
 import { Questions } from "./Questions/Questions";
 import { Reviews } from "./Reviews/Reviews";
+import { ShoppingList } from "./ShoppingList/ShoppingList";
 export const App = () => {
   return (
    <><div className="container">
+    <ShoppingList/>
    <Header />
    <Main/>
    <Proposal/>
