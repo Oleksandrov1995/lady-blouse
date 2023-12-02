@@ -31,20 +31,17 @@ useEffect (()=> {
 
 const handleDeleteProduct = (productId) => {
   const updatedProducts = products.filter((product) => product.id !== productId);
-  setProducts(updatedProducts);
-  localStorage.setItem('products', JSON.stringify(updatedProducts));
+  return  setProducts(updatedProducts);
+  // localStorage.setItem('products', JSON.stringify(updatedProducts));
 };
 
-const handleModalClose = ()=>{
-  modalClose()
-  window.location.reload()
-}
+
 const handleAddToCart = (productId) => {
   const updatedProducts = products.map((product) =>
     product.id === productId ? { ...product, quantity: (product.quantity || 1) + 1 } : product
   );
     setProducts(updatedProducts);
-  localStorage.setItem('products', JSON.stringify(updatedProducts));
+  // localStorage.setItem('products', JSON.stringify(updatedProducts));
 };
 const handleRemoveFromCart = (productId) => {
   const updatedProducts = products
@@ -55,9 +52,16 @@ const handleRemoveFromCart = (productId) => {
     )
     .filter((product) => product.quantity > 0);
 
-  setProducts(updatedProducts);
-  localStorage.setItem('products', JSON.stringify(updatedProducts));
+    return  setProducts(updatedProducts);  
+  // localStorage.setItem('products', JSON.stringify(updatedProducts));
 };
+
+const handleModalClose  = async()=>{
+  console.log(products)
+ await localStorage.setItem('products', JSON.stringify(products));
+  modalClose()
+  // window.location.reload()
+}
 
   return (
     <div>

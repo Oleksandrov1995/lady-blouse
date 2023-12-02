@@ -5,15 +5,31 @@ import { useEffect, useState } from 'react';
 export const ChooseColor = ({ modalOpen }) => {
   const [products, setProducts] = useState(() => {
     const storedProducts = localStorage.getItem('products');
+
     return storedProducts ? JSON.parse(storedProducts) : [];
   });
 
-  const  handleAddProduct =async(productId)=>{
-    const selectedProduct = productsData.find(product=> productId===product.id)
-    await setProducts(prevProducts => [...prevProducts, selectedProduct])
-    
-modalOpen()
-  }
+  const handleAddProduct = async productId => {
+    const selectedProduct = productsData.find(
+      product => productId === product.id
+    );
+
+    const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+    const isProductAdded = storedProducts.find(
+      product => productId === product.id
+    );
+
+    if (isProductAdded) {
+      return modalOpen();
+    }
+
+    const updatedProducts = [...storedProducts, selectedProduct];
+
+    setProducts(updatedProducts);
+    localStorage.setItem('products', JSON.stringify(updatedProducts));
+
+    modalOpen();
+  };
 
   useEffect(() => {
     localStorage.setItem('products', JSON.stringify(products));
@@ -37,7 +53,7 @@ modalOpen()
             <p className="productTodayPrice-text">{product.todayPrice} грн</p>
             <p className="product-color">{product.color}</p>
             <button
-              onClick={()=>handleAddProduct(product.id)}
+              onClick={() => handleAddProduct(product.id)}
               className="product-button"
               type="button"
             >
