@@ -16,21 +16,54 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-
 export const ShoppingList = ({modalOpen, modalClose}) => {
+
+
 const [products, setProducts] = useState([])
 useEffect (()=> {
+  
   const products = JSON.parse(localStorage.getItem('products'))
-  console.log('Stored Products:', products);
+  
   if(products){
     setProducts(products)
   }
-},[])
+},[modalOpen])
+
+const handleDeleteProduct = (productId) => {
+  const updatedProducts = products.filter((product) => product.id !== productId);
+  setProducts(updatedProducts);
+  localStorage.setItem('products', JSON.stringify(updatedProducts));
+};
+
+const handleModalClose = ()=>{
+  modalClose()
+  window.location.reload()
+}
+const handleAddToCart = (productId) => {
+  const updatedProducts = products.map((product) =>
+    product.id === productId ? { ...product, quantity: (product.quantity || 1) + 1 } : product
+  );
+    setProducts(updatedProducts);
+  localStorage.setItem('products', JSON.stringify(updatedProducts));
+};
+const handleRemoveFromCart = (productId) => {
+  const updatedProducts = products
+    .map((product) =>
+      product.id === productId
+        ? { ...product, quantity: Math.max((product.quantity || 0) - 1, 0) }
+        : product
+    )
+    .filter((product) => product.quantity > 0);
+
+  setProducts(updatedProducts);
+  localStorage.setItem('products', JSON.stringify(updatedProducts));
+};
+
   return (
     <div>
       <Modal
         open={modalOpen}
-        onClose={modalClose}
+        onClose={handleModalClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -41,6 +74,10 @@ useEffect (()=> {
         {products&&products.map((product)=>(
           <div key={product.id}>
             <p>{product.color}</p>
+            <p>Quantity: {product.quantity || 1}</p>
+                <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
+                <button onClick={() => handleAddToCart(product.id)}>Add to Cart</button>
+                <button onClick={() => handleRemoveFromCart(product.id)}>Remove from Cart</button>
           </div>
         ))}
         </Box>

@@ -11,6 +11,7 @@ export const ChooseColor = ({ modalOpen }) => {
   const  handleAddProduct =async(productId)=>{
     const selectedProduct = productsData.find(product=> productId===product.id)
     await setProducts(prevProducts => [...prevProducts, selectedProduct])
+    
 modalOpen()
   }
 
