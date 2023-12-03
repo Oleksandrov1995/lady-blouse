@@ -1,0 +1,15 @@
+.modalBox{
+    position: absolute;
+    transform: translateX(-50%);
+ left: 50%;
+ top: 15%;
+  width: 320px;
+  background-color: white;
+  border: 2px solid #000;
+  box-shadow: 24;
+ padding: 10px;
+}
+.modalButtonClose{
+    display: block;
+    margin-left:  auto;
+}
