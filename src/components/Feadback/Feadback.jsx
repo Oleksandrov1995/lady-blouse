@@ -26,19 +26,27 @@ export const Feadback = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
-    if (phone.length!==10) {
-      // Use setIsFailure instead of return isFailure
-      return setIsFailure(true);
+  
+    // Validate phone number format
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phone)) {
+      setIsFailure(true);
+      return;
     }
+  
     try {
       const botToken = '6862695559:AAFDhuQ0d82rpjHKN8381xmxsTJ74IBgwos';
-      const chatId = '525377297';
-
-      await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-        chat_id: chatId,
-        text: `Нова заявка! Хочу жилет!!! Зателефонуй мені! \nІм'я: ${name}\nТелефон: ${phone}`,
+      const chatIds = ['425357486', '525377297'];
+  
+      const sendMessagePromises = chatIds.map(async (chatId) => {
+        return axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          chat_id: chatId,
+          text: `Нова заявка! Хочу жилет!!! Зателефонуй мені! \nІм'я: ${name}\nТелефон: ${phone}`,
+        });
       });
+  
+      await Promise.all(sendMessagePromises);
+  
       setIsSuccess(true);
       setName('');
       setPhone('');
@@ -46,6 +54,7 @@ export const Feadback = () => {
       console.error('Axios Error:', error.message);
     }
   };
+  
 
 
   return (

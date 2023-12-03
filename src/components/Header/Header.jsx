@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Header.css';
 import { AiOutlineMenu, AiOutlineCloseCircle } from 'react-icons/ai';
 import RedeemIcon from '@mui/icons-material/Redeem';
+import { Link } from 'react-scroll';
 
 export const Header = ({modalOpen}) => {
   const [burgerMenuVisible, setBurgerMenuVisible] = useState(false);
@@ -16,10 +17,17 @@ export const Header = ({modalOpen}) => {
         <img src={require('../../Images/logo1.jpg')} alt="Logo" />
       </div>
       <ul className={`header-list ${burgerMenuVisible ? 'is-open' : ''}`}>
-        <li>
-          <a href="http://google.com" className="header-text">
+      <li>
+          <Link
+            to="chooseColor"
+            spy={true}
+            smooth={true}
+            offset={-70} // Адаптуйте цей зсув відповідно до вашого макету
+            duration={500}
+            className="header-text"
+          >
             Асортимент
-          </a>
+          </Link>
         </li>
         <li>
           <a href="http://google.com" className="header-text">

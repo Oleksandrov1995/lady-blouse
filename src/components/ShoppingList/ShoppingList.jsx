@@ -62,27 +62,31 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
 
   const handleFormSubmit = async e => {
     e.preventDefault();
-
+  
     try {
       const botToken = '6862695559:AAFDhuQ0d82rpjHKN8381xmxsTJ74IBgwos';
-      const chatId = '525377297';
-
-      await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-        chat_id: chatId,
-        text: `Нова заявка! Хочу жилет!!!
-      \nТовар: ${products.map(product => `${product.color} (${product.quantity})`)}
-      \nЗагальна сума; ${totalAmount}
-       \nІм'я: ${name}
-       \nТелефон: ${phone}
-       \nНаселений пункт: ${location}
-       \nПошта: ${post}
-       \nОплата: ${paymentMethod}
-       \nДзвонити?: ${noCall}
-       \nЗапитання: ${question}
-       `,
+      const chatIds = ['425357486', '525377297']; 
+  
+      const sendMessagePromises = chatIds.map(async chatId => {
+        return axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          chat_id: chatId,
+          text: `Нова заявка! Хочу жилет!!!
+          \nТовар: ${products.map(product => `${product.color} (${product.quantity})`)}
+          \nЗагальна сума: ${totalAmount}
+          \nІм'я: ${name}
+          \nТелефон: ${phone}
+          \nНаселений пункт: ${location}
+          \nПошта: ${post}
+          \nОплата: ${paymentMethod}
+          \nДзвонити?: ${noCall}
+          \nЗапитання: ${question}
+          `,
+        });
       });
+  
+      await Promise.all(sendMessagePromises);
+  
       setProducts([]);
-      console.log(products);
       setName('');
       setPhone('');
       setLocation('');
@@ -95,6 +99,7 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
       console.error('Axios Error:', error.message);
     }
   };
+  
 
   const handleModalClose = async () => {
     await localStorage.setItem('products', JSON.stringify(products));

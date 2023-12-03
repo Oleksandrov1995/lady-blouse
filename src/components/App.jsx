@@ -29,7 +29,7 @@ export const App = () => {
    <Proposal/>
    <AboutProduct/>
    <ProductSize/>
-  <ChooseColor modalOpen={handleModalOpen}/>
+  <ChooseColor id="chooseColor" modalOpen={handleModalOpen}/>
    <Reviews/>
     <OurBenefits/>
    <Questions/>
