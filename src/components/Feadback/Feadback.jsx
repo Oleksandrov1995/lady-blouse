@@ -27,7 +27,7 @@ export const Feadback = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
   
-    // Validate phone number format
+  
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(phone)) {
       setIsFailure(true);
@@ -36,7 +36,7 @@ export const Feadback = () => {
   
     try {
       const botToken = '6862695559:AAFDhuQ0d82rpjHKN8381xmxsTJ74IBgwos';
-      const chatIds = ['425357486', '525377297'];
+      const chatIds = ['525377297', '425357486'];
   
       const sendMessagePromises = chatIds.map(async (chatId) => {
         return axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {

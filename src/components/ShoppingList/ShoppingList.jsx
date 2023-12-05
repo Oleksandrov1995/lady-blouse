@@ -9,6 +9,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import axios from 'axios';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const ShoppingList = ({ modalOpen, modalClose }) => {
   const [products, setProducts] = useState([]);
@@ -20,6 +21,8 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [noCall, setNoCall] = useState(false);
   const [question, setQuestion] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isFailure, setIsFailure] = useState(false)
 
   useEffect(() => {
     const products = JSON.parse(localStorage.getItem('products'));
@@ -28,6 +31,20 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
       setProducts(products);
     }
   }, [modalOpen]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      Notify.success('Дякуємо! Заявка прийнята.');
+      setTimeout(() => setIsSuccess(false), 4000);
+    }
+  }, [isSuccess]);
+
+  useEffect(() => {
+    if (isFailure) {
+      Notify.failure('Введіть Ваш номер телефону');
+      setTimeout(() => setIsFailure(false), 4000);
+    }
+  }, [isFailure]);
 
   const handleDeleteProduct = productId => {
     const updatedProducts = products.filter(
@@ -62,10 +79,14 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
 
   const handleFormSubmit = async e => {
     e.preventDefault();
-  
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phone)) {
+      setIsFailure(true);
+      return;
+    }
     try {
       const botToken = '6862695559:AAFDhuQ0d82rpjHKN8381xmxsTJ74IBgwos';
-      const chatIds = ['425357486', '525377297']; 
+      const chatIds = ['525377297' , '425357486']; 
   
       const sendMessagePromises = chatIds.map(async chatId => {
         return axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -78,14 +99,14 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
           \nНаселений пункт: ${location}
           \nПошта: ${post}
           \nОплата: ${paymentMethod}
-          \nДзвонити?: ${noCall}
+          \nНе Дзвонити?: ${noCall}
           \nЗапитання: ${question}
           `,
         });
       });
   
       await Promise.all(sendMessagePromises);
-  
+      setIsSuccess(true);
       setProducts([]);
       setName('');
       setPhone('');
@@ -121,32 +142,34 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
             onClick={handleModalClose}
             className="modalButtonClose"
           />
-          <h2>Ваше замовлення:</h2>
+          <h2 className='shoppingList-title'>Ваше замовлення:</h2>
           {products &&
             products.map(product => (
-              <div key={product.id}>
-                <p>Жилет {product.color}</p>
-                <p>
+              <div key={product.id} className='shoppingList-product' >
+                <p className='shoppingList-productName'>Жилет {product.color}</p>
+                <p  className='shoppingList-quantity'>
                   Кількість:
                   <RemoveCircleOutlineIcon
                     onClick={() => handleRemoveFromCart(product.id)}
                   />
                   {product.quantity || 1}{' '}
                   <AddCircleIcon onClick={() => handleAddToCart(product.id)} />
-                  {product.todayPrice * (product.quantity || 1)} грн.
+                 <span className='shoppingList-productPrice'>{product.todayPrice * (product.quantity || 1)} грн.</span> 
                   <DeleteOutlineIcon
+                  className='shoppingList-deleteIcon'
                     onClick={() => handleDeleteProduct(product.id)}
                   />
                 </p>
               </div>
             ))}
-          <p>Загальна сума: {totalAmount}</p>
+          <p className='shoppingList-totalPrice'>Загальна сума: {totalAmount} гривень</p>
           <form className="shoppingList-form" onSubmit={handleFormSubmit}>
-            <ul>
+            <ul  >
               <li>
                 <label>
                   ПІБ одержувача
                   <input
+                  className="shoppingList-formInput"
                     type="text"
                     name="name"
                     value={name}
@@ -157,7 +180,7 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
               <li>
                 <label>
                   Телефон
-                  <input
+                  <input className="shoppingList-formInput"
                     type="tel"
                     name="phone"
                     placeholder="099-999-99-99"
@@ -171,7 +194,7 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
               <li>
                 <label>
                   Населений пункт
-                  <input
+                  <input className="shoppingList-formInput"
                     type="text"
                     name="location"
                     value={location}
@@ -182,7 +205,7 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
               <li>
                 <label>
                   Номер відділення Нової пошти або індекс Укрпошти
-                  <input
+                  <input className="shoppingList-formInput"
                     type="text"
                     name="post"
                     value={post}
@@ -192,44 +215,48 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
               </li>
             </ul>
 
-            <section>
-              <p>Спосіб оплати</p>
+            <section >
+              <p className='shoppingList-paymentTitle'>Спосіб оплати</p>
               <label>
-                При отриманні у відділенні пошти (накладний платіж)
-                <input
+              
+                <input  className='shoppingList-payment'
                   type="radio"
                   checked={paymentMethod === 'imposed'}
                   name="paymentMethod"
                   value="imposed"
                   onChange={e => setPaymentMethod(e.target.value)}
                 />
+                  При отриманні у відділенні пошти (накладний платіж)
               </label>
               <label>
-                Оплата на картку (надішлемо смс із номером картки для оплати)
-                <input
+                
+                <input className='shoppingList-payment'
                   type="radio"
                   checked={paymentMethod === 'card'}
                   name="paymentMethod"
                   value="card"
                   onChange={e => setPaymentMethod(e.target.value)}
                 />
+                Оплата на картку (надішлемо смс із номером картки для оплати)
               </label>
             </section>
-            <label>
-              Надіслати посилку без дзвінка менеджера
-              <input
+            <label className='shoppingList-checkbox'>
+             
+              <input className='shoppingList-payment'
                 type="checkbox"
                 checked={noCall}
                 onChange={e => setNoCall(e.target.checked)}
               />
+               Надіслати посилку без дзвінка менеджера
             </label>
-            <input
+            <input className='shoppingList-questionInput'
               type="text"
               name="question"
               value={question}
               placeholder="Залишіть Ваше запитання чи уточнення за необхідності"
               onChange={e => setQuestion(e.target.value)}
             />
+              <p className='shoppingList-totalPrice'>Загальна сума: {totalAmount} гривень</p>
             <button type="submit">Замовити</button>
           </form>
         </Box>
