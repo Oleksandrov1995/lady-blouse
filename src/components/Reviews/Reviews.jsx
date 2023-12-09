@@ -50,7 +50,6 @@ export const Reviews = () => {
           smooth={true}
           offset={-70}
           duration={500}
-          className="header-text"
         >
           Швидке замовлення
         </Link>

@@ -16,8 +16,20 @@
     text-align: center;
     gap: 30px;
 }
-
+.aboutProduct-item{
+    padding: 25px 15px 40px 15px
+}
+.aboutProduct-listTitle{
+    margin-top: 40px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.aboutProduct-listText{
+    font-size: 18px;
+    font-weight: 400;
+}
 .item-color{
     background-color: #f0f0f0;
-    padding: 15px;
+  
 }

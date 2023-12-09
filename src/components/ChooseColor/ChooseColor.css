@@ -1,5 +1,5 @@
 .product {
-  padding: 30px 0 30px 0;
+  padding: 70px 0 70px 0;
   text-align: center;
 }
 .product-list {
@@ -8,7 +8,7 @@
   align-content: space-around;
   flex-wrap: wrap;
   position: relative;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 .product-img {
   width: 300px;

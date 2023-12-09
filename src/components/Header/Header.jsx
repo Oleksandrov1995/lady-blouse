@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { AiOutlineMenu, AiOutlineCloseCircle } from 'react-icons/ai';
-import RedeemIcon from '@mui/icons-material/Redeem';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-scroll';
 
 export const Header = ({ modalOpen }) => {
@@ -11,8 +11,8 @@ export const Header = ({ modalOpen }) => {
     setBurgerMenuVisible(!burgerMenuVisible);
   };
   const getProducts = localStorage.getItem('products')
-console.log(getProducts)
   return (
+    <header className='header-section'>
     <div className="header-container">
       <div className="header-logo">
         <img src={require('../../Images/logo1.jpg')} alt="Logo" />
@@ -94,7 +94,10 @@ console.log(getProducts)
 
       <button onClick={modalOpen}
       className={!getProducts || getProducts === '[]' ? 'modalButtonDisabled'  : 'modalButton' }>
-        <RedeemIcon fontSize="large" sx={{ color: '#ffffff' }} />
+        <ShoppingCartIcon fontSize="large" sx={{ color: 'black' }} />
+        <p className='buttonNumber'>
+    {getProducts ? JSON.parse(getProducts).reduce((total, item) => total + item.quantity, 0) : 0}
+  </p>
       </button>
       <div className="burger-menu-icon" onClick={toggleBurgerMenu}>
         {burgerMenuVisible ? (
@@ -104,5 +107,6 @@ console.log(getProducts)
         )}
       </div>
     </div>
+    </header>
   );
 };

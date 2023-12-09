@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 
 let price = 792;
 let todayPrice = 539;
-let quantity = 11;
+
 
 export const Proposal = () => {
   return (
@@ -14,7 +14,7 @@ export const Proposal = () => {
             src={require('../../Images/proposal1.jpg')}
             alt="Дівчина в жилетці"
           />
-          <p>Доповнює стиль та додає тепла</p>
+          <p className="proposal-item-text">Доповнює стиль та <br/> додає тепла</p>
         </li>
         <li className="proposal-item">
           {' '}
@@ -22,7 +22,7 @@ export const Proposal = () => {
             src={require('../../Images/proposal2.jpg')}
             alt="Жилетка на вішаку"
           />
-          <p>Висока якість пошиву та тканини</p>
+          <p className="proposal-item-text">Висока якість пошиву <br/>  та тканини</p>
         </li>
         <li className="proposal-item">
           {' '}
@@ -30,7 +30,7 @@ export const Proposal = () => {
             src={require('../../Images/proposal3.jpg')}
             alt="Дівчина в жилетці"
           />
-          <p>Приховує особливості фігури</p>
+          <p className="proposal-item-text">Приховує особливості <br/> фігури</p>
         </li>
       </ul>
       <div className="proposal-allPrice">
@@ -43,16 +43,16 @@ export const Proposal = () => {
       </div>
       <h3 className='proposal-text'>Пропозиція діє до кінця тижня</h3>
       <button type='button' className='proposal-button'> <Link
+      
             to="chooseColor"
             spy={true}
             smooth={true}
             offset={-70}
             duration={500}
-            className="header-text"
           >
             Обрати жилет
           </Link></button>
-      <p className='proposal-text'>{`Залишилося ${quantity} штук по акції`}</p>
+      <p className='proposal-text'>Залишилося <span style={{ background: '#ff671e' }}>11</span> штук по акції</p>
     </section>
   );
 };

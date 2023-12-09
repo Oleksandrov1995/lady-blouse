@@ -13,10 +13,11 @@ export const Contacts = () => {
 <ul className="contacts-list">
               <li className="contacts-item">
                 <a href="mailto:info@devstudio.com" 
+                
                   >
                      <EmailIcon sx={{ fontSize: 20 }}/>
-                 : ladyblouse@gmail.com</a
-                >
+                     <span className="contacts-itemText">: ladyblouse@gmail.com</span>
+                 </a>
               </li>
               <li className="contacts-item">
                

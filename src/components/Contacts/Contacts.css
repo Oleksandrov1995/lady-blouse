@@ -1,11 +1,11 @@
-.contacts{ padding: 30px 0 30px 0;
+.contacts{ padding: 70px 0 70px 0;
     text-align: center;
   background-color: #f0f0f0;}
     .contacts-title{
-        margin-bottom: 30px;
+        margin-bottom: 70px;
     }
   .contacts-list{
-    margin-top: 30px;
+    margin-top: 70px;
     gap: 15px;
     display: inline-block;
     text-align: start;
@@ -16,5 +16,8 @@
     display: flex;
     gap: 30px;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 70px;
+ }
+ .contacts-itemText{
+  vertical-align: text-bottom;
  }

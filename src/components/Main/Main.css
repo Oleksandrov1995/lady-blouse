@@ -19,10 +19,15 @@ padding-bottom: 50px;
      text-align: center;
      margin-top: 250px;
      font-size: 12px;
+     line-height: 37px;
+}
+.title{
+    font-style: italic;
 }
 .main-benefits{
     display: flex;
     flex-direction: column;
+    
 }
 .main-logo{
     position: absolute;

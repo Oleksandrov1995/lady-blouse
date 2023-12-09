@@ -124,4 +124,13 @@ font-size: 18px;
   color: white;
 }
 
-/* Add any additional styles as needed */
+@media only screen and (min-width: 1020px) {
+  .modalBox {
+ 
+    width: 620px;
+    
+    padding: 30px 30px 40px 30px
+  }
+
+
+}

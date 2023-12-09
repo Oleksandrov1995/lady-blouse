@@ -1,39 +1,81 @@
 import './Footer.css'
-
+import { Link } from 'react-scroll'
 export const Footer = () => {
     return(
         <section className='footer'>
 
 <ul className='footer-list'>
-        <li>
-          <a href="http://google.com" className="footer-text">
+<li>
+          <Link
+            to="chooseColor"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="footer-text"
+          >
             Асортимент
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="http://google.com" className="footer-text">
+          <Link
+            to="productSize"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="footer-text"
+          >
             Параметри
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="http://google.com" className="footer-text">
+          <Link
+            to="reviews"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="footer-text"
+          >
             Відгуки
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="http://google.com" className="footer-text">
+          <Link
+            to="questions"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="footer-text"
+          >
             Запитання
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="http://google.com" className="footer-text">
+          <Link
+            to="feadback"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="footer-text"
+          >
             Швидке замовлення
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="http://google.com" className="footer-text">
+          <Link
+            to="contacts"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="footer-text"
+          >
             Контакти
-          </a>
+          </Link>
         </li>
       </ul>
       <p>© 2020 Ladyblouse</p>

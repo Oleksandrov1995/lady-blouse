@@ -1,12 +1,12 @@
 .footer{
     background-color: black;
-    padding: 40px;
+    padding: 50px;
     color: white;
     
     text-align: center;
 }
 .footer-list{
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 }
 .footer-text{
     color: white;

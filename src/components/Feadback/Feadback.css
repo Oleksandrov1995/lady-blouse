@@ -1,7 +1,10 @@
 .feadback {
-    padding: 30px 0 30px 0;
+    padding: 70px 0 70px 0;
     text-align: center;
     background-color: #ddd2be;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .feadback-list{
     display: flex;
@@ -13,9 +16,11 @@
   .feadback-text{
     font-weight: bold;
     font-size: 30px;
+    margin-bottom: 30px;
   }
   .feadback-text2{
     font-size: 24px;
+    margin-bottom: 30px;
   }
   .feadback-form{
     display: flex;
@@ -31,16 +36,19 @@
     margin-right: auto;
   }
   .feadback-button{
-    width: 200px;
+    width: 300px;
+    padding: 15px;
     margin-left: auto;
     margin-right: auto;
     background-color: #f5c231;
     font-size: 22px;
     font-weight: bold;
-    margin-top: 6;
+    margin-top: 20px;
   }
 
   @media only screen and (min-width: 1020px) {
     .feadback-form{ flex-direction: row;
         justify-content: center; }
-  }
+        .feadback-button{
+          margin-top: 0;
+  }}
