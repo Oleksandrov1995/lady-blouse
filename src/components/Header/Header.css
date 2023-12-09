@@ -1,4 +1,3 @@
-/* Header.css */
 .header-container {
     position: relative;
     display: flex;
@@ -28,6 +27,10 @@
 .header-item{
     cursor: pointer;
 }
+.modalButtonDisabled{
+    display: none;
+}
+.header-text{font-size: 20px;}
 
 .is-open{
     padding: 10px;
@@ -48,6 +51,9 @@
     background-color: black;
     padding: 5px;
         }
-        .header-text{color: white;}
+        .header-text{color: white;
+            letter-spacing: 0px;
+            font-size: 18.5px;
+        }
 }
 

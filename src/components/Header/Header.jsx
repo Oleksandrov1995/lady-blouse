@@ -10,7 +10,8 @@ export const Header = ({ modalOpen }) => {
   const toggleBurgerMenu = () => {
     setBurgerMenuVisible(!burgerMenuVisible);
   };
-
+  const getProducts = localStorage.getItem('products')
+console.log(getProducts)
   return (
     <div className="header-container">
       <div className="header-logo">
@@ -91,7 +92,8 @@ export const Header = ({ modalOpen }) => {
         </li>
       </ul>
 
-      <button onClick={modalOpen}>
+      <button onClick={modalOpen}
+      className={!getProducts || getProducts === '[]' ? 'modalButtonDisabled'  : 'modalButton' }>
         <RedeemIcon fontSize="large" sx={{ color: '#ffffff' }} />
       </button>
       <div className="burger-menu-icon" onClick={toggleBurgerMenu}>
