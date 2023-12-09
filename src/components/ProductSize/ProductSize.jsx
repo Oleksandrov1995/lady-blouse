@@ -2,7 +2,7 @@ import './ProductSize.css';
 
 export const ProductSize = () => {
   return (
-    <section className='productSize'>
+    <section id="productSize" className='productSize'>
       <h2>Заміри виробу</h2>
       <ul className='productSize-list'>
         <li>

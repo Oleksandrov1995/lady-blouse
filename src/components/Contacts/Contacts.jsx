@@ -6,7 +6,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import TelegramIcon from '@mui/icons-material/Telegram';
 export const Contacts = () => {
     return(
-        <section className="contacts">
+        <section id="contacts" className="contacts">
             <h2 className="contacts-title">Наші Контакти</h2>
             <h3>Зв'яжіться з нами щодо підбору розмірів, наявності, доставки та способів оплати
 </h3>

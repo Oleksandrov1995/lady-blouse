@@ -4,7 +4,7 @@ import { AiOutlineMenu, AiOutlineCloseCircle } from 'react-icons/ai';
 import RedeemIcon from '@mui/icons-material/Redeem';
 import { Link } from 'react-scroll';
 
-export const Header = ({modalOpen}) => {
+export const Header = ({ modalOpen }) => {
   const [burgerMenuVisible, setBurgerMenuVisible] = useState(false);
 
   const toggleBurgerMenu = () => {
@@ -17,46 +17,83 @@ export const Header = ({modalOpen}) => {
         <img src={require('../../Images/logo1.jpg')} alt="Logo" />
       </div>
       <ul className={`header-list ${burgerMenuVisible ? 'is-open' : ''}`}>
-      <li>
+        <li className="header-item">
           <Link
             to="chooseColor"
             spy={true}
             smooth={true}
-            offset={-70} // Адаптуйте цей зсув відповідно до вашого макету
+            offset={-70}
             duration={500}
             className="header-text"
           >
             Асортимент
           </Link>
         </li>
-        <li>
-          <a href="http://google.com" className="header-text">
+        <li className="header-item">
+          <Link
+            to="productSize"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="header-text"
+          >
             Параметри
-          </a>
+          </Link>
         </li>
-        <li>
-          <a href="http://google.com" className="header-text">
+        <li className="header-item">
+          <Link
+            to="reviews"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="header-text"
+          >
             Відгуки
-          </a>
+          </Link>
         </li>
-        <li>
-          <a href="http://google.com" className="header-text">
+        <li className="header-item">
+          <Link
+            to="questions"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="header-text"
+          >
             Запитання
-          </a>
+          </Link>
         </li>
-        <li>
-          <a href="http://google.com" className="header-text">
+        <li className="header-item">
+          <Link
+            to="feadback"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="header-text"
+          >
             Швидке замовлення
-          </a>
+          </Link>
         </li>
-        <li>
-          <a href="http://google.com" className="header-text">
+        <li className="header-item">
+          <Link
+            to="contacts"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="header-text"
+          >
             Контакти
-          </a>
+          </Link>
         </li>
       </ul>
 
-      <button onClick={modalOpen} ><RedeemIcon fontSize="large" sx={{ color: '#ffffff' }}/></button>
+      <button onClick={modalOpen}>
+        <RedeemIcon fontSize="large" sx={{ color: '#ffffff' }} />
+      </button>
       <div className="burger-menu-icon" onClick={toggleBurgerMenu}>
         {burgerMenuVisible ? (
           <AiOutlineCloseCircle size={30} />

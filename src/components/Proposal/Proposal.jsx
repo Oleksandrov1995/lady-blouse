@@ -1,4 +1,5 @@
 import './Proposal.css';
+import { Link } from 'react-scroll';
 
 let price = 792;
 let todayPrice = 539;
@@ -41,7 +42,16 @@ export const Proposal = () => {
         <span className="proposal-todayPrice price-text">{todayPrice} ГРН</span>
       </div>
       <h3 className='proposal-text'>Пропозиція діє до кінця тижня</h3>
-      <button type='button' className='proposal-button'>Обрати жилет</button>
+      <button type='button' className='proposal-button'> <Link
+            to="chooseColor"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="header-text"
+          >
+            Обрати жилет
+          </Link></button>
       <p className='proposal-text'>{`Залишилося ${quantity} штук по акції`}</p>
     </section>
   );

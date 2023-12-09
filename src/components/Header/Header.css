@@ -25,7 +25,9 @@
     background-color: white;
     margin-right: auto;
 }
-
+.header-item{
+    cursor: pointer;
+}
 
 .is-open{
     padding: 10px;

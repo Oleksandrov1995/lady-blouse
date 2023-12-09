@@ -58,7 +58,7 @@ export const Feadback = () => {
 
 
   return (
-    <section className="feadback">
+    <section id="feadback" className="feadback">
 
      <ul className='feadback-list'>
         <li>

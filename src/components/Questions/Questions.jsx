@@ -19,7 +19,7 @@ export const Questions = () => {
       };
 
   return (
-    <section className='question'>
+    <section id="questions" className='question'>
     <h2 className='question-title'>Найчастіші запитання</h2>
     <List
       sx={{ width: '100%', maxWidth: '100%', bgcolor: 'background.paper' }}

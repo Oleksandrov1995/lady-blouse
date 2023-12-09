@@ -36,7 +36,7 @@ export const ChooseColor = ({ modalOpen }) => {
   }, [products]);
 
   return (
-    <section className="product">
+    <section id="chooseColor" className="product">
       <h2>Обери свій колір</h2>
       <ul className="product-list">
         {productsData.map(product => (
