@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/lady-blouse/static/css/main.2245f082.css",
-    "main.js": "/lady-blouse/static/js/main.75c01fd7.js",
+    "main.js": "/lady-blouse/static/js/main.285d2ee9.js",
     "static/media/prices1.png": "/lady-blouse/static/media/prices1.dd9604ca44d9c0a7bbdc.png",
     "static/media/proposal2.jpg": "/lady-blouse/static/media/proposal2.40c170ceb2dc9e1b4986.jpg",
     "static/media/reviews2.png": "/lady-blouse/static/media/reviews2.ce277cd1a583e495f60b.png",
@@ -20,10 +20,10 @@
     "static/media/logo1.jpg": "/lady-blouse/static/media/logo1.051c716fd5532611781a.jpg",
     "index.html": "/lady-blouse/index.html",
     "main.2245f082.css.map": "/lady-blouse/static/css/main.2245f082.css.map",
-    "main.75c01fd7.js.map": "/lady-blouse/static/js/main.75c01fd7.js.map"
+    "main.285d2ee9.js.map": "/lady-blouse/static/js/main.285d2ee9.js.map"
   },
   "entrypoints": [
     "static/css/main.2245f082.css",
-    "static/js/main.75c01fd7.js"
+    "static/js/main.285d2ee9.js"
   ]
 }
