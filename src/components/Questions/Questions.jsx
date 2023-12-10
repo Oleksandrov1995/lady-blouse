@@ -29,11 +29,14 @@ export const Questions = () => {
       {questionsData.map((item, index) => (
         <React.Fragment key={index}>
           <ListItemButton onClick={() => handleClick(index)}>
-            <ListItemText primary={item.title} />
+            <ListItemText primary={item.title} primaryTypographyProps={{ style: { fontWeight: 'bold' } }} />
             {openItems[index] ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={openItems[index]} timeout="auto" unmountOnExit>
-            <ListItemText primary={item.text} />
+          <ListItemText
+    primary={<p>{item.text}</p>}
+    primaryTypographyProps={{ style: { textAlign: 'left', paddingLeft: '10px' } }}
+  />
           </Collapse>
         </React.Fragment>
       ))}

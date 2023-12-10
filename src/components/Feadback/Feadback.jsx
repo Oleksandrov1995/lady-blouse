@@ -36,7 +36,7 @@ export const Feadback = () => {
   
     try {
       const botToken = '6862695559:AAFDhuQ0d82rpjHKN8381xmxsTJ74IBgwos';
-      const chatIds = ['525377297', '425357486'];
+      const chatIds = ['525377297', '425357486', '433212231'];
   
       const sendMessagePromises = chatIds.map(async (chatId) => {
         return axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
