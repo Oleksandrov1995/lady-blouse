@@ -116,6 +116,7 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
       setNoCall(false);
       setQuestion('');
       handleModalClose();
+      localStorage.removeItem('products');
     } catch (error) {
       console.error('Axios Error:', error.message);
     }
