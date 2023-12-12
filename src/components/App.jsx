@@ -14,6 +14,7 @@ import { Proposal } from "./Proposal/Proposal";
 import { Questions } from "./Questions/Questions";
 import { Reviews } from "./Reviews/Reviews";
 import { ShoppingList } from "./ShoppingList/ShoppingList";
+import { ShoppingListButton } from "./ShoppingListButton/ShoppingListButton";
 
 export const App = () => {
 
@@ -24,7 +25,8 @@ export const App = () => {
   return (
    <><div className="container">
     <ShoppingList modalOpen={modalOpen} modalClose={handleModalClose} />
-   <Header modalOpen={handleModalOpen} />
+    <ShoppingListButton modalOpen={handleModalOpen}/>
+   <Header  />
    <Main/>
    <Proposal/>
    <AboutProduct/>

@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { AiOutlineMenu, AiOutlineCloseCircle } from 'react-icons/ai';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-scroll';
 
-export const Header = ({ modalOpen }) => {
+export const Header = () => {
   const [burgerMenuVisible, setBurgerMenuVisible] = useState(false);
 
   const toggleBurgerMenu = () => {
     setBurgerMenuVisible(!burgerMenuVisible);
   };
-  const getProducts = localStorage.getItem('products')
+
   return (
     <header className='header-section'>
     <div className="header-container">
@@ -92,13 +91,6 @@ export const Header = ({ modalOpen }) => {
         </li>
       </ul>
 
-      <button onClick={modalOpen}
-      className={!getProducts || getProducts === '[]' ? 'modalButtonDisabled'  : 'modalButton' }>
-        <ShoppingCartIcon fontSize="large" sx={{ color: 'black' }} />
-        <p className='buttonNumber'>
-    {getProducts ? JSON.parse(getProducts).reduce((total, item) => total + item.quantity, 0) : 0}
-  </p>
-      </button>
       <div className="burger-menu-icon" onClick={toggleBurgerMenu}>
         {burgerMenuVisible ? (
           <AiOutlineCloseCircle size={30} />
