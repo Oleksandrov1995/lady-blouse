@@ -4,6 +4,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import TelegramIcon from '@mui/icons-material/Telegram';
+import { Link } from "react-router-dom";
 export const Contacts = () => {
     return(
         <section id="contacts" className="contacts">
@@ -43,6 +44,10 @@ export const Contacts = () => {
                 </li>
               
               </ul>
+
+              <Link className="agreement-link" to={`/agreement`} >
+           Політика конфіденційності
+            </Link>
 
         </section>
     )

@@ -21,3 +21,9 @@
  .contacts-itemText{
   vertical-align: text-bottom;
  }
+.agreement-link{
+  display: inline-block;
+  margin-top:40px ;
+  font-size: 11px;
+  text-decoration: underline;
+}

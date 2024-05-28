@@ -1,0 +1,60 @@
+.whatToWhear-section{
+    padding: 70px 0 70px 0;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+.whatToWhear-list {
+    display: flex;
+    padding: 100px 10px 20px 10px;
+    gap: 120px;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  
+  }
+  .whatToWhear-item {
+    position: relative;
+    z-index: 3;
+   width: 320px;
+  }
+  .whatToWhear-text{
+    margin-top: 30px;
+    font-size: 25px;
+    text-indent: 2ch;
+    text-align: justify;
+  }
+  .whatToWhear-textSp{
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  .whatToWhear-item::before {
+    display: block;
+    content: '';
+    transform: translate(-5%, -3%);
+    background-color: #eedec7;
+    width: 100%;
+    height: 110%;
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    padding: 0 25px;
+  }
+
+ 
+  @media only screen and (min-width: 820px) {
+   
+    .whatToWhear-list {
+    
+      flex-direction: row;
+  
+      padding:100px 30px 100px 30px;
+    }
+    .whatToWhear-item {
+    width: 500px;
+      }
+      .whatToWhear-text{
+        padding-right: 15px;
+      }
+  }

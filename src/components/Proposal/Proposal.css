@@ -1,5 +1,5 @@
 .proposal-section {
-  margin-top: 500px;
+  margin-top: 350px;
 padding-bottom: 50px;
 }
 .proposal-list {
@@ -10,11 +10,12 @@ padding-bottom: 50px;
   align-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  background: linear-gradient(to left, silver, white);
+
 }
 .proposal-item {
   position: relative;
   z-index: 3;
+ width: 320px;
 }
 .proposal-item-text{
   margin-top: 30px;
@@ -73,9 +74,10 @@ padding-bottom: 50px;
 
 @media only screen and (min-width: 480px) {
   .proposal-allPrice {
-    margin-top: 100px;
+    margin-top: 80px;
     width: 470px;
   }
+ 
   .proposal-price {
     bottom: 30px;
     left: 80px;
@@ -90,13 +92,13 @@ padding-bottom: 50px;
 }
 @media only screen and (min-width: 1020px) {
   .proposal-section {
-    margin-top: 180px;
+    margin-top: 100px;
   }
   .proposal-list {
   
     flex-direction: row;
     flex-wrap: nowrap;
-    padding:200px 30px 200px 30px;
+    padding:100px 30px 100px 30px;
   }
   .proposal-allPrice {
     margin-top: 70px;

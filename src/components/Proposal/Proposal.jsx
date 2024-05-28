@@ -1,8 +1,10 @@
+import CountTimeDown from '../CountTimeDown/CountTimeDown';
 import './Proposal.css';
 import { Link } from 'react-scroll';
 
-let price = 792;
-let todayPrice = 539;
+
+let price = 815;
+let todayPrice = 489;
 
 
 export const Proposal = () => {
@@ -30,7 +32,7 @@ export const Proposal = () => {
             src={require('../../Images/proposal3.jpg')}
             alt="Дівчина в жилетці"
           />
-          <p className="proposal-item-text">Приховує особливості <br/> фігури</p>
+          <p className="proposal-item-text">Створює трендовий невимушений  силует з ноткою офіційності</p>
         </li>
       </ul>
       <div className="proposal-allPrice">
@@ -41,8 +43,9 @@ export const Proposal = () => {
         <span className="proposal-price price-text">{price} ГРН</span>
         <span className="proposal-todayPrice price-text">{todayPrice} ГРН</span>
       </div>
-      <h3 className='proposal-text'>Пропозиція діє до кінця тижня</h3>
-      <button type='button' className='proposal-button'> <Link
+      <h3 className="proposal-text">Пропозиція діє ще:</h3>
+<CountTimeDown/>
+        <button type='button' className='proposal-button'> <Link
       
             to="chooseColor"
             spy={true}

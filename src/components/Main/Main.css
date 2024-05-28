@@ -9,6 +9,21 @@ margin-left: auto;
 margin-right: auto;
 padding-bottom: 50px;
 }
+.main-discount{
+    position: absolute;
+    display: block;
+      right: 2.8%;
+}
+.main-discount-img{
+    width: 60px;
+}
+.main-discount-text{
+    color: white;
+    transform: translateY(-130%);
+    padding-left: 3px;
+    font-weight: bolder;
+    font-size: 25px;
+}
 .main-titles{
     display: flex;
     max-width: 1000px;
@@ -39,6 +54,17 @@ padding-bottom: 50px;
 }
 @media only screen and (min-width: 1020px) {
     .main-container{ height: 434px;}
+    .main-discount{
+          right: 12%;
+    }
+    .main-discount-img{
+        width: 100px;
+    }
+    .main-discount-text{
+        transform: translateY(-130%);
+        padding-left: 7px;
+        font-size: 40px;
+    }
     .main-titles{padding-bottom: 50px;
     margin-top: 175px;
     font-size: 15px;}

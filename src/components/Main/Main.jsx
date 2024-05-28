@@ -3,6 +3,12 @@ import React from 'react';
 export const Main = ()=>{
     return(
         <section className="main-container">
+            <div className="main-discount"> <img
+              className="main-discount-img"
+              src={require('Images/discount.png')}
+              alt="discount"
+            />
+            <p className="main-discount-text">-40%</p></div>
             <div className="main-titles">
 <h1 className="main-title">БАЗОВІ ЖИЛЕТИ З БАВОВНИ ТА АКРИЛУ В НАЙСТИЛЬНІШИХ ТА ПРАКТИЧНИХ КОЛЬОРАХ</h1>
 <h4 className="title">НА СОРОЧКУ, БЛУЗУ, ФУТБОЛКУ АБО ГОЛЬФ</h4>

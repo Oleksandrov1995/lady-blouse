@@ -79,7 +79,7 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
 
   const handleFormSubmit = async e => {
     e.preventDefault();
-    const phoneRegex = /^\d{10}$/;
+    const phoneRegex = /^\d{10,12}$/;
     if (!phoneRegex.test(phone)) {
       setIsFailure(true);
       return;
@@ -181,7 +181,7 @@ export const ShoppingList = ({ modalOpen, modalClose }) => {
                     placeholder="099-999-99-99"
                     value={phone}
                     onChange={e =>
-                      setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))
+                      setPhone(e.target.value.replace(/\D/g, '').slice(0, 12))
                     }
                   />
                 </label>
